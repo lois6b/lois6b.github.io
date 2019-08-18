@@ -27,7 +27,35 @@
   </head>
 
   <body>
-    <h1 class="title font-effect-anaglyph">Web en desarrollo</h1>
+    <script>
+    
+    var r, g, b;
+
+function setup() {
+  createCanvas(displayWidth, displayHeight);
+  r = random(50, 255);
+  g = random(0, 200);
+  b = random(50, 255);
+  
+  /*Promise.all([navigator.permissions.request({ name: "accelerometer" }),
+             navigator.permissions.request({ name: "gyroscope" })])
+    .then(results => {
+      console.log(results)
+    });*/
+}
+
+function draw() {
+  background(r, g, b);
+  //console.log('draw');
+}
+
+function deviceMoved() {   
+    r = map(accelerationX, -90, 90, 100, 175);
+    g = map(accelerationY, -90, 90, 100, 200);
+    b = map(accelerationZ, -90, 90, 100, 200);   
+}
+    </script>
+    <h1 class="title font-effect-anaglyph">Web en desarrollo 2</h1>
   </body>
 
 </html>
